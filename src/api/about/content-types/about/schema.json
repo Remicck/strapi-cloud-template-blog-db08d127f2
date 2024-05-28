@@ -23,6 +23,10 @@
         "shared.rich-text",
         "shared.slider"
       ]
+    },
+    "latest_news": {
+      "type": "string",
+      "required": false
     }
   }
 }
