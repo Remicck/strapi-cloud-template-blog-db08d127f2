@@ -35,11 +35,12 @@
       ]
     },
     "movie": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "videos"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "author": {
       "type": "relation",
@@ -61,6 +62,11 @@
         "archived"
       ],
       "default": "draft"
+    },
+    "quiz": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::quiz.quiz"
     }
   }
 }

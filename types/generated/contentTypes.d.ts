@@ -828,6 +828,11 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       ]
     > &
       Attribute.DefaultTo<'draft'>;
+    quiz: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'api::quiz.quiz'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -958,6 +963,30 @@ export interface ApiParentCategoryParentCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiQuizQuiz extends Schema.CollectionType {
+  collectionName: 'quizzes';
+  info: {
+    singularName: 'quiz';
+    pluralName: 'quizzes';
+    displayName: 'Quiz';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    questions: Attribute.Component<'shared.questions', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::quiz.quiz', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::quiz.quiz', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -980,6 +1009,7 @@ declare module '@strapi/types' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::parent-category.parent-category': ApiParentCategoryParentCategory;
+      'api::quiz.quiz': ApiQuizQuiz;
     }
   }
 }

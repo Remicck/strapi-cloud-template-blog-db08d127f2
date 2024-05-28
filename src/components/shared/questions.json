@@ -1,0 +1,32 @@
+{
+  "collectionName": "questions",
+  "info": {
+    "name": "Question",
+    "description": "Component to manage questions and their choices.",
+    "displayName": "Questions"
+  },
+  "attributes": {
+    "questionText": {
+      "type": "string",
+      "required": true
+    },
+    "choise_1": {
+      "type": "string"
+    },
+    "choise_2": {
+      "type": "string"
+    },
+    "choise_3": {
+      "type": "string"
+    },
+    "choise_4": {
+      "type": "string"
+    },
+    "correct_answer": {
+      "type": "integer",
+      "max": 4,
+      "min": 1,
+      "required": false
+    }
+  }
+}
