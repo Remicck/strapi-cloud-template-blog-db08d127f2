@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "parent_categories",
+  "info": {
+    "singularName": "parent-category",
+    "pluralName": "parent-categories",
+    "displayName": "ParentCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "parentcategoryname": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "parent_category"
+    }
+  }
+}
